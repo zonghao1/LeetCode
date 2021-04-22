@@ -52,6 +52,7 @@ class Solution772 {
                 }
                 queue.offer(curr+"");
 
+
             } else if (getLevel(c) != -1){
                 while (!ops.isEmpty() && getLevel(ops.peek()) >= getLevel(c)) {
                     queue.offer(ops.pop() +"");

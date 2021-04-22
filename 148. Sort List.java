@@ -147,6 +147,7 @@ class Solution148a {
     }
 
 
+
     int findLength(ListNode head) {
         int length = 0;
         while (head != null) {

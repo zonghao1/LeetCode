@@ -53,26 +53,6 @@ class Solution958 {
     }
 }
 
-class Solution958a {
-    private int target_height = 0, last_level_filled = 0;
-    private boolean dfs(TreeNode r, int h) {
-        if (r == null) {
-            if (target_height == 0) {
-                target_height = h;
-            } else if (h == target_height - 1) {
-                last_level_filled = 1;
-            }
-            return h == target_height - last_level_filled;
-        }
-        return dfs(r.left, h + 1) && dfs(r.right, h + 1);
-    }
-    public boolean isCompleteTree(TreeNode root) {
-        return dfs(root, 0);
-    }
-
-
-}
-
 class Solution958b {
 
     public boolean isCompleteTree(TreeNode root) {
@@ -82,7 +62,7 @@ class Solution958b {
     }
 
     private boolean dfs(TreeNode r, int h, int[] target_height, int[] last_level_filled) {
-        int i = 0;
+
         if (r == null) {
             if (target_height[0] == 0) {
                 target_height[0] = h;

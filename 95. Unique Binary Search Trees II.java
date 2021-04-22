@@ -36,6 +36,7 @@ class Solution95 {
         if (n < 1) {
             return ret;
         }
+
         return helper(1, n);
     }
 

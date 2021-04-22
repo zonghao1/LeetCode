@@ -34,6 +34,7 @@ class Solution42 {
                 rightIndex--;
             }
         }
+
         return ret;
     }
 }

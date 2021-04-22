@@ -43,51 +43,51 @@ class Solution912 {
 
 }
 
-//class Solution {
-//    public int[] sortArray(int[] nums) {
-//        if (nums == null || nums.length <= 1) {
-//            return nums;
-//        }
-//        helper(nums, 0, nums.length - 1);
-//        return nums;
-//
-//    }
-//
-//    void helper(int[] nums, int left, int right) {
-//        if (left >= right) return;
-//        int index = getPivotIndex(left, right);
-//        swap(nums, index, right);
-//        int i = left;
-//        int j = right - 1;
-//        int pivot = nums[right];
-//        while (i <= j) {
-//            if (nums[i] <= pivot) {
-//                i++;
-//            } else if (nums[j] > pivot) {
-//                j--;
-//            } else {
-//                swap(nums, i++,j--);
-//            }
-//        }
-//        swap(nums, i, right);
-//        helper(nums, left, i - 1);
-//        helper(nums, i + 1, right);
-//    }
-//
-//
-//
-//
-//    int getPivotIndex(int i, int j) {
-//        int length = j - i + 1;
-//        return i + (int) (Math.random() * length);
-//    }
-//
-//
-//    void swap(int[] nums, int i, int j) {
-//        int temp = nums[i];
-//        nums[i] = nums[j];
-//        nums[j] = temp;
-//    }
-//
-//
-//}
+class Solution912a {
+    public int[] sortArray(int[] nums) {
+        if (nums == null || nums.length <= 1) {
+            return nums;
+        }
+        helper(nums, 0, nums.length - 1);
+        return nums;
+
+    }
+
+    void helper(int[] nums, int left, int right) {
+        if (left >= right) return;
+        int index = getPivotIndex(left, right);
+        swap(nums, index, right);
+        int i = left;
+        int j = right - 1;
+        int pivot = nums[right];
+        while (i <= j) {
+            if (nums[i] <= pivot) {
+                i++;
+            } else if (nums[j] > pivot) {
+                j--;
+            } else {
+                swap(nums, i++,j--);
+            }
+        }
+        swap(nums, i, right);
+        helper(nums, left, i - 1);
+        helper(nums, i + 1, right);
+    }
+
+
+
+
+    int getPivotIndex(int i, int j) {
+        int length = j - i + 1;
+        return i + (int) (Math.random() * length);
+    }
+
+
+    void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+
+}

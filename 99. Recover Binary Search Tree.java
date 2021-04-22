@@ -34,6 +34,7 @@
  * }
  */
 class Solution99 {
+
     public void recoverTree(TreeNode root) {
         TreeNode first = null;
         TreeNode second = null;

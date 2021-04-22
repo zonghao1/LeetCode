@@ -30,6 +30,7 @@ class Solution69 {
             }
         }
 
+
         if (right <= x / right) {
             return right;
         } return left;

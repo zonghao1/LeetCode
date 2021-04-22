@@ -19,6 +19,7 @@
 //        Input: nums = [], target = 0
 //        Output: [-1,-1]
 
+
 class Solution34 {
     public int[] searchRange(int[] nums, int target) {
         if (nums == null || nums.length == 0) {

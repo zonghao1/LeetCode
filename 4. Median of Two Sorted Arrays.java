@@ -25,6 +25,7 @@
 //        Input: nums1 = [2], nums2 = []
 //        Output: 2.00000
 
+
 class Solution4 {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int firstLength = nums1.length;

@@ -34,11 +34,13 @@ class Solution19 {
         dummyHead.next = head;
         int length = 0;
         ListNode curr = head;
+
         while (curr != null) {
             length++;
             curr = curr.next;
         }
         length -= (n);
+
         ListNode prev = dummyHead;
         while (length > 0) {
             prev = prev.next;

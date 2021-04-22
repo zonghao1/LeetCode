@@ -112,6 +112,7 @@ class Solution23a {
 
                 pq.offer(node);}
         }
+
         while (!pq.isEmpty()) {
             ListNode thisNode = pq.poll();
             ListNode next = thisNode.next;

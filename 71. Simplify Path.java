@@ -55,6 +55,7 @@ class Solution71 {
                 } else {
                     deque.offerLast(path.substring(i - currLength, i));
                 }
+
             } else {
                 int count = 0;
                 while (i < path.length() && path.charAt(i) != '/' ) {

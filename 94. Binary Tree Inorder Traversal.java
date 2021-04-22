@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Definition for a binary tree node.
@@ -44,20 +45,20 @@ class Solution94 {
     }
 }
 
-//class Solution {
-//    public List<Integer> inorderTraversal(TreeNode root) {
-//        Stack<TreeNode> stack = new Stack<>();
-//        List<Integer> ret = new ArrayList<>();
-//        while (root != null || !stack.isEmpty()) {
-//            if (root != null) {
-//                stack.push(root);
-//                root = root.left;
-//            } else {
-//                root = stack.pop();
-//                ret.add(root.val);
-//                root = root.right;
-//            }
-//        }
-//        return ret;
-//    }
-//}
+class Solution94a {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> ret = new ArrayList<>();
+        while (root != null || !stack.isEmpty()) {
+            if (root != null) {
+                stack.push(root);
+                root = root.left;
+            } else {
+                root = stack.pop();
+                ret.add(root.val);
+                root = root.right;
+            }
+        }
+        return ret;
+    }
+}

@@ -46,6 +46,7 @@ class Solution1011 {
         return right;
     }
 
+
     boolean couldWork(int[] weights, int work, int D) {
         int curr = 0;
         int days = 1;

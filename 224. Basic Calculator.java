@@ -43,6 +43,7 @@ class Solution224 {
                 queue.offer(value + "");
             } else if (opRank(c) != -1) {
                 int rank = opRank(c);
+                //Important here
                 if ( (i == 0 || s.charAt(i-1) == '(') && opRank(c) == 2) {
                     queue.offer("0");
                 }

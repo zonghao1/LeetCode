@@ -14,6 +14,7 @@
 
 class Solution96 {
     public int numTrees(int n) {
+        
         int[] ret = new int[n + 1];
         ret[0] = 1;
         ret[1] = 1;

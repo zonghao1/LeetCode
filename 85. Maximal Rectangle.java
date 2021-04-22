@@ -24,6 +24,7 @@ class Solution85 {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return 0;
         }
+
         int rows = matrix.length;
         int cols = matrix[0].length;
         int[] height = new int[cols + 2];

@@ -23,6 +23,7 @@ class Solution84 {
         for (int i = 0; i < heights.length; i++) {
             newHeights[i+1] = heights[i];
         }
+
         for (int i = 0; i < newHeights.length; i++) {
             if (stack.isEmpty() || newHeights[i] >= newHeights[stack.peek()]) {
                 stack.push(i);

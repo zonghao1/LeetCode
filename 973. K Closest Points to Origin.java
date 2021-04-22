@@ -48,66 +48,66 @@ class Solution973 {
     }
 }
 
-//class Solution {
-//    public int[][] kClosest(int[][] points, int k) {
-//        if (points == null || points.length <= 1) {
-//            return points;
-//        }
-//
-//        quickSelect(points, 0, points.length - 1, k - 1);
-//        int[][] ret = new int[k][2];
-//        for (int i = 0; i < k; i++) {
-//            ret[i] = points[i];
-//        }
-//        return ret;
-//
-//    }
-//
-//    void quickSelect(int[][] points, int left, int right, int k) {
-//        int povitNumber = povit(points, left, right);
-//        if (povitNumber == k) {
-//            return;
-//        } else if (povitNumber < k) {
-//            quickSelect(points, povitNumber, right, k);
-//        } else {
-//            quickSelect(points, left, povitNumber - 1, k);
-//        }
-//    }
-//
-//
-//
-//    int povit(int[][] points, int left, int right) {
-//        int pivotLength = squareLength(points[right]);
-//        int i = left;
-//        int j = right - 1;
-//        while (i <= j) {
-//            if (squareLength(points[i]) <= pivotLength) {
-//                i++;
-//            } else if (squareLength(points[j]) > pivotLength) {
-//                j--;
-//            } else {
-//                swap(points, i++,j--);
-//            }
-//        }
-//        swap(points, i, right);
-//        return i;
-//
-//    }
-//
-//
-//
-//
-//
-//
-//    void swap(int[][] points, int i, int j) {
-//        int[] temp = points[i];
-//        points[i] = points[j];
-//        points[j] = temp;
-//    }
-//
-//
-//
-//    int squareLength(int[] point) {
-//        return point[0] * point[0] + point[1] * point[1];
-//    }
-//}
+class Solution973a {
+    public int[][] kClosest(int[][] points, int k) {
+        if (points == null || points.length <= 1) {
+            return points;
+        }
+
+        quickSelect(points, 0, points.length - 1, k - 1);
+        int[][] ret = new int[k][2];
+        for (int i = 0; i < k; i++) {
+            ret[i] = points[i];
+        }
+        return ret;
+
+    }
+
+    void quickSelect(int[][] points, int left, int right, int k) {
+        int povitNumber = povit(points, left, right);
+        if (povitNumber == k) {
+            return;
+        } else if (povitNumber < k) {
+            quickSelect(points, povitNumber, right, k);
+        } else {
+            quickSelect(points, left, povitNumber - 1, k);
+        }
+    }
+
+
+
+    int povit(int[][] points, int left, int right) {
+        int pivotLength = squareLength(points[right]);
+        int i = left;
+        int j = right - 1;
+        while (i <= j) {
+            if (squareLength(points[i]) <= pivotLength) {
+                i++;
+            } else if (squareLength(points[j]) > pivotLength) {
+                j--;
+            } else {
+                swap(points, i++,j--);
+            }
+        }
+        swap(points, i, right);
+        return i;
+
+    }
+
+
+
+
+
+
+    void swap(int[][] points, int i, int j) {
+        int[] temp = points[i];
+        points[i] = points[j];
+        points[j] = temp;
+    }
+
+
+
+    int squareLength(int[] point) {
+        return point[0] * point[0] + point[1] * point[1];
+    }
+}

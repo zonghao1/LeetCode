@@ -21,6 +21,7 @@
 //        Input: piles = [30,11,23,4,20], h = 6
 //        Output: 23
 
+
 class Solution875 {
     public int minEatingSpeed(int[] piles, int h) {
         int left = 1;

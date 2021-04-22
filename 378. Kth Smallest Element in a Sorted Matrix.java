@@ -19,6 +19,8 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 class Solution378 {
+
+    //BFS
     public int kthSmallest(int[][] matrix, int k) {
         PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
             public int compare(int[] a, int[] b) {
@@ -51,60 +53,68 @@ class Solution378 {
     }
 }
 
-//class Solution {
-//    public int kthSmallest(int[][] matrix, int k) {
-//        int left = matrix[0][0];
-//        int rows = matrix.length;
-//        int cols = matrix[0].length;
-//        int right = matrix[rows-1][cols-1];
-//        while (left < right - 1) {
-//            int mid = left + (right - left) / 2;
-//            int smaller = 0;
-//            smaller = wrapUpperBound(matrix,  mid);
-//
-//            if (smaller <= k - 1) {
-//                left = mid;
-//            }
-//            if (smaller > k - 1) {
-//                right = mid;
-//            }
-//        }
-//
-//        if (wrapUpperBound(matrix, left) >= k) {
-//            return left;
-//        }
-//        return right;
-//
-//
-//
-//    }
-//    int wrapUpperBound(int[][] matrix, int mid) {
-//        int smaller = 0;
-//        for (int[] currRow: matrix) {
-//            smaller += upperBound( currRow, mid);
-//        }
-//        return smaller;
-//    }
-//
-//
-//    // First i such that A[i] > value
-//    int upperBound(int[] currRow, int value) {
-//        int left = 0;
-//        int right = currRow.length - 1;
-//        while (left < right - 1) {
-//            int mid = left + (right - left) / 2;
-//            if (currRow[mid] <= value) {
-//                left = mid;
-//            } else {
-//                right = mid;
-//            }
-//        }
-//        if (currRow[left] > value) {
-//            return left;
-//        } else if (currRow[right] > value) {
-//            return right;}
-//        return right + 1;
-//
-//    }
-//
-//}
+class Solution378a {
+    public int kthSmallest(int[][] matrix, int k) {
+        int left = matrix[0][0];
+        int right = matrix[matrix.length-1][matrix[0].length-1];
+        while (left < right - 1) {
+            int mid = left + (right - left) / 2;
+            int smaller = 0;
+            smaller = wrapUpperBound(matrix,  mid);
+
+            if (smaller < k ) {
+                left = mid;
+            }
+            /*
+            小于或等于k，找第一个满足的值
+            比方说 1 2 4 5 mid = 3, 3 满足但是需要继续找，直到array里正好有一个值，这个值也一定会满足
+             */
+
+            if (smaller == k ) {
+                right = mid;
+            }
+
+            if (smaller > k ) {
+                right = mid;
+            }
+
+        }
+
+        if (wrapUpperBound(matrix, left) >= k ) {
+            return left;
+        }
+        return right;
+
+
+
+    }
+    int wrapUpperBound(int[][] matrix, int mid) {
+        int smaller = 0;
+        for (int[] currRow: matrix) {
+            smaller += upperBound( currRow, mid);
+        }
+        return smaller;
+    }
+
+
+    // First i such that A[i] > value
+    int upperBound(int[] currRow, int value) {
+        int left = 0;
+        int right = currRow.length - 1;
+        while (left < right - 1) {
+            int mid = left + (right - left) / 2;
+            if (currRow[mid] <= value) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+        if (currRow[left] > value) {
+            return left;
+        } else if (currRow[right] > value) {
+            return right;}
+        return right + 1;
+
+    }
+
+}

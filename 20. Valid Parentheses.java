@@ -20,6 +20,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 class Solution20 {
+
     public boolean isValid(String s) {
         if (s == null || s.length() == 0) {
             return true;

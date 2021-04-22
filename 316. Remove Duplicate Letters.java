@@ -42,8 +42,6 @@ class Solution316 {
                 }
                 stack.push(c);
                 visited[c-'a'] = true;
-
-
             }
         }
         StringBuilder sb = new StringBuilder();

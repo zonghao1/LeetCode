@@ -70,5 +70,6 @@ class Solution24a {
         head.next = nextPart;
         return next;
 
+
     }
 }

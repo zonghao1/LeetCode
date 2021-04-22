@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+
 class Solution56 {
     public int[][] merge(int[][] intervals) {
         List<int[]> list = new ArrayList<>();

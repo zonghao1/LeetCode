@@ -40,6 +40,7 @@ class Solution445 {
                 twoValue = two.val;
                 two = two.next;
             }
+
             ListNode thisNode = new ListNode(oneValue + twoValue);
             curr.next = thisNode;
             curr = curr.next;

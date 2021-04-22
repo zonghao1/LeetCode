@@ -36,6 +36,7 @@ class Solution5 {
         return s.substring(ret[0], ret[0] + ret[1]);
     }
 
+
     int[] getLength(String s, int l, int r) {
         int[] ret = new int[]{0, 0};
         while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
