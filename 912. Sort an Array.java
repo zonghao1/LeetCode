@@ -1,4 +1,5 @@
 class Solution912 {
+    //merge Sort
     public int[] sortArray(int[] nums) {
         if (nums == null || nums.length <= 1) {
             return nums;
@@ -44,6 +45,7 @@ class Solution912 {
 }
 
 class Solution912a {
+    // quickSort
     public int[] sortArray(int[] nums) {
         if (nums == null || nums.length <= 1) {
             return nums;

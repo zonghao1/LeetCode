@@ -45,6 +45,7 @@ class Solution47 {
         }
         Set<Integer> set = new HashSet<>();
 
+
         for (int i = level; i < nums.length; i++) {
             if (!set.add(nums[i])) {
                 continue;

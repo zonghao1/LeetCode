@@ -27,6 +27,7 @@ class Solution252 {
             list.add(curr);
         }
 
+
         Collections.sort(list, new Comparator<int[]>() {
             public int compare(int[] a, int[] b) {
                 if (a[0] == b[0]) {

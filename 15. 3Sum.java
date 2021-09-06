@@ -19,6 +19,7 @@
 
 import java.util.*;
 
+
 class Solution15 {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ret = new ArrayList<>();
@@ -27,9 +28,11 @@ class Solution15 {
         }
         Arrays.sort(nums);
         Map<Integer, Integer> map = new HashMap<>();
+
         for (int i = 0; i < nums.length; i++) {
             map.put(nums[i], i);
         }
+
         for (int i = 0; i < nums.length - 1; i++) {
             if (i > 0 && nums[i] == nums[i-1]) {
                 continue;

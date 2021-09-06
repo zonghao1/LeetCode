@@ -38,7 +38,6 @@ class Solution322 {
         for (int i = 1; i < ret.length; i++) {
             ret[i] = amount + 1;
         }
-
         for (int coin: coins) {
             for (int k = 1; k  <= amount; k++) {
                 if (k - coin >= 0) {

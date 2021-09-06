@@ -91,3 +91,42 @@ class Solution785 {
 
 
 }
+
+class Solution785a {
+    public boolean isBipartite(int[][] graph) {
+        int[] colors = new int[graph.length];
+        for (int index = 0; index < graph.length; index++) {
+            if (colors[index] == 0) {
+                if (!bfs(graph, colors, index, 1)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+
+    }
+
+
+
+
+    boolean bfs(int[][] graph, int[] colors, int index, int color) {
+        if (colors[index] != 0) {
+            return colors[index] == color;
+        }
+
+        colors[index] = color;
+        int reverse = color == 1 ? 2 : 1;
+        int[] neighbors = graph[index];
+        for (int neighbor: neighbors) {
+            if (!bfs(graph, colors, neighbor, reverse)) {
+                return false;
+            }
+        }
+        return true;
+
+
+    }
+
+
+
+}

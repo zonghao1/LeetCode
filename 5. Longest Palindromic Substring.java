@@ -21,6 +21,7 @@
 //        Output: "a"
 
 class Solution5 {
+
     public String longestPalindrome(String s) {
         int[] ret = new int[]{0,0};
         for (int i = 0; i < s.length(); i++) {

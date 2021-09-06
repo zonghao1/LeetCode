@@ -24,6 +24,7 @@ class Solution18a {
         if (nums == null || nums.length < 4) {
             return ret;
         }
+
         for (int i = 0; i < nums.length - 1; i++) {
             if (i > 0 && nums[i] == nums[i-1]) {
                 continue;
@@ -74,10 +75,6 @@ class Solution18a {
 
         }
         return ret;
-
-
-
-
 
     }
 

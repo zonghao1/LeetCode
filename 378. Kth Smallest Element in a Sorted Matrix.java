@@ -118,3 +118,54 @@ class Solution378a {
     }
 
 }
+
+class Solution378b {
+    public int kthSmallest(int[][] matrix, int k) {
+        int left = matrix[0][0];
+        int right = matrix[matrix.length-1][matrix[0].length-1];
+        while (left < right - 1) {
+            int mid = left + (right - left) / 2;
+            int smallerOrEqual = smallerOrEqual(matrix,  mid);
+
+            if (smallerOrEqual < k) {
+                left = mid;
+            }
+            /*
+            大于或等于k，找第一个满足的值
+            比方说 1 2 4 5 mid = 3, 3 满足但是需要继续找，直到array里正好有一个值，这个值也一定会满足
+             */
+
+            else if (smallerOrEqual == k) {
+                right = mid;
+            }
+
+            else if (smallerOrEqual > k) {
+                right = mid;
+            }
+
+        }
+
+        if (smallerOrEqual(matrix, left) >= k) {
+            return left;
+        }
+        return right;
+
+
+
+    }
+    int smallerOrEqual(int[][] matrix, int mid) {
+        int row = matrix.length - 1;
+        int col = 0;
+        int count = 0;
+        while (row >= 0 && col < matrix[0].length) {
+            if (matrix[row][col] > mid) {
+                row--;
+            } else {
+                col++;
+                count += row + 1;
+            }
+
+        }
+        return count;
+    }
+}

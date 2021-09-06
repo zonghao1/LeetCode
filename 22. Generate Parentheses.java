@@ -25,6 +25,7 @@ class Solution22 {
         }
         dfs(ret, sb, 0,0,n);
         return ret;
+
     }
 
     void dfs(List<String> ret, StringBuilder sb, int left, int right, int n) {

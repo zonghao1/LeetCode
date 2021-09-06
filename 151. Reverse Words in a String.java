@@ -65,6 +65,7 @@ class Solution151 {
             }
         }
 
+
         slow--;
         if (array[slow] == ' ') {
             slow--;

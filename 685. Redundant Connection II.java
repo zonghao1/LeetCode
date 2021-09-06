@@ -32,6 +32,7 @@ edges[i].length == 2
 
 class Solution685 {
 
+
     //三种情况
     // https://www.youtube.com/watch?v=lnmJT5b4NlM&t=411s
     public int[] findRedundantDirectedConnection(int[][] edges) {

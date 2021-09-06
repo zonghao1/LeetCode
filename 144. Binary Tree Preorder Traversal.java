@@ -17,7 +17,9 @@
 //        Output: [1]
 
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 /**
@@ -62,6 +64,28 @@ class Solution144 {
 
 
 
+        }
+        return ret;
+    }
+}
+
+class Solution144a {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> ret = new ArrayList<>();
+        if (root == null) {
+            return ret;
+        }
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.pop();
+            ret.add(curr.val);
+            if (curr.right != null) {
+                stack.push(curr.right);
+            }
+            if (curr.left != null) {
+                stack.push(curr.left);
+            }
         }
         return ret;
     }

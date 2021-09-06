@@ -14,7 +14,11 @@ Given an integer array nums and an integer k, return the kth largest element in 
         Output: 4
  */
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 class Solution215 {
+    // QuickSelect
     public int findKthLargest(int[] nums, int k) {
         int left = 0;
         int right = nums.length - 1;
@@ -56,4 +60,32 @@ class Solution215 {
         nums[j] = temp;
     }
 
+}
+
+class Solution215a {
+    //Priority Queue (Heap)
+
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(k, new Comparator<Integer>(){
+            public int compare(Integer a, Integer b){
+                if (a.equals(b)) {
+                    return 0;
+                }
+                return a > b? 1 : -1;
+            }
+        });
+
+        for (int i = 0; i < nums.length; i++) {
+            if (i < k) {
+                pq.offer(nums[i]);
+            } else {
+                if (nums[i] > pq.peek()) {
+                    pq.poll();
+                    pq.offer(nums[i]);
+                }
+            }
+        }
+        return pq.peek();
+
+    }
 }

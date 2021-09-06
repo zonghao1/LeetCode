@@ -28,11 +28,6 @@ class Solution75 {
                 swap(nums, one, two--);
             }
         }
-
-
-
-
-
     }
 
     void swap(int[] nums, int i, int j) {

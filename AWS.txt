@@ -1,0 +1,7 @@
+19 regions = 2 or more avaiablity zones (North Virginia, Ohio)
+57 availability zones = one or more data centers
+Edge Location: for caching. Consists Content Delivery Network (CDN)
+
+Identity Access Management
+
+

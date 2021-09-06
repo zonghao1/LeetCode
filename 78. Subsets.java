@@ -40,6 +40,7 @@ class Solution78a {
         return ret;
     }
 
+
 }
 
 class Solution78b {
@@ -62,6 +63,42 @@ class Solution78b {
         dfs(ret, curr, nums, level + 1);
         curr.remove(curr.size() - 1);
     }
+
+
+}
+
+class Solution78c {
+
+    /*
+            ""
+         a    b     c
+      ab  ac  bc
+
+    abc
+
+
+     */
+
+
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> ret = new ArrayList<>();
+        dfs(ret, new ArrayList<>(), nums, 0);
+        return ret;
+
+
+    }
+
+    void dfs(List<List<Integer>> ret, List<Integer> curr, int[] nums, int level) {
+        ret.add(new ArrayList<>(curr));
+        for (int i = level; i < nums.length; i++) {
+            curr.add(nums[i]);
+            dfs(ret, curr, nums, i + 1);
+            curr.remove(curr.size() - 1);
+        }
+
+    }
+
+
 
 
 }

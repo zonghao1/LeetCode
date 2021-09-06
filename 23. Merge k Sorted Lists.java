@@ -56,10 +56,7 @@ class Solution23 {
         return mergeTwo(first, second);
     }
 
-
-
-
-
+    
     ListNode mergeTwo(ListNode a, ListNode b) {
         ListNode dummyHead = new ListNode(0);
         ListNode curr = dummyHead;
@@ -109,7 +106,6 @@ class Solution23a {
         ListNode curr = dummyHead;
         for (ListNode node: lists) {
             if (node != null) {
-
                 pq.offer(node);}
         }
 

@@ -27,8 +27,7 @@
 //        0 <= ai, bi < numCourses
 //        All the pairs prerequisites[i] are unique.
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /*
     ----- Topo sort ------
@@ -46,8 +45,8 @@ class Solution207 {
         }
 
         for (int[] pair: prerequisites) {
-            int pre = pair[1];
             int curr = pair[0];
+            int pre = pair[1];
             list.get(curr).add(pre);
         }
         int[] status = new int[numCourses];
@@ -59,6 +58,7 @@ class Solution207 {
         return true;
 
     }
+
 
     boolean dfs(List<List<Integer>> list, int[] status, int curr) {
         if (status[curr] == VISITED) {
@@ -79,4 +79,47 @@ class Solution207 {
     }
 
 
+}
+
+
+class Solution207a {
+
+    //BFS
+
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        for (int i = 0; i < prerequisites.length; i++) {
+            map.putIfAbsent(prerequisites[i][0], new HashSet<>());
+            map.get(prerequisites[i][0]).add(prerequisites[i][1]);
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (!map.containsKey(i)) {
+                queue.offer(i);
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            Integer curr = queue.poll();
+            for (Map.Entry<Integer, Set<Integer>> entry: map.entrySet()) {
+                if (entry.getValue().contains(curr)) {
+                    entry.getValue().remove(curr);
+                    if (entry.getValue().size() == 0) {
+                        queue.offer(entry.getKey());
+                    }
+                }
+            }
+        }
+
+        for (Map.Entry<Integer, Set<Integer>> entry: map.entrySet()) {
+            if (entry.getValue().size() != 0) {
+                return false;
+            }
+        }
+
+        return true;
+
+
+    }
 }

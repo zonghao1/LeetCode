@@ -98,16 +98,21 @@ class Solution148a {
         dummyHead.next = head;
         for (int step = 1; step < length; step *= 2) {
             ListNode curr = dummyHead;
+
+
             while (curr != null && curr.next != null) {
 
                 ListNode first = splitUp(curr.next, step);
                 ListNode secondStart = first.next;
+
                 ListNode second = splitUp(secondStart, step);
                 ListNode nextPart = second == null? null: second.next;
+
                 first.next = null;
                 if (second != null) {
                     second.next = null;
                 }
+
                 ListNode[] pair = merge(curr.next, secondStart);
                 curr.next = pair[0];
                 pair[1].next = nextPart;

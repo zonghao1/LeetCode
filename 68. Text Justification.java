@@ -76,6 +76,7 @@ class Solution68 {
                 length += words[endIndex].length() + 1;
             }
 
+
             // One word or last line
             if (endIndex == index || endIndex == words.length - 1) {
                 StringBuilder sb = new StringBuilder();

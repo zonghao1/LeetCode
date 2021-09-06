@@ -34,6 +34,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+
 class Solution684a {
     public int[] findRedundantConnection(int[][] edges) {
         int n = edges.length + 1;
@@ -57,27 +58,25 @@ class Solution684a {
         return null;
     }
 
-    boolean dfs(int i, int j, boolean[] visited, Map<Integer, Set<Integer>> map) {
-        if (i == j) {
+    boolean dfs(int curr, int goal, boolean[] visited, Map<Integer, Set<Integer>> map) {
+        if (curr == goal) {
             return true;
         }
-        if (visited[i]) {
+
+        visited[curr] = true;
+
+        if (!map.containsKey(curr) || !map.containsKey(goal)) {
             return false;
         }
-        visited[i] = true;
 
-        if (!map.containsKey(i) || !map.containsKey(j)) {
-            return false;
-        }
-        Set<Integer> curr = map.get(i);
-        if (curr != null) {
-            for (Integer k: curr) {
-
-                if (dfs(k, j, visited, map)) {
-                    return true;
-                }
+        Set<Integer> currSet = map.getOrDefault(curr, new HashSet<>());
+        for (int next: currSet) {
+            if (visited[next]) continue;
+            if (dfs(next, goal, visited, map)) {
+                return true;
             }
         }
+
         return false;
 
 
